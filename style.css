@@ -1,25 +1,20 @@
 * {
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 :root {
-
   --text-color: white;
   --br-url: url(./assets/bg-mobile.jpg);
-  --stroke-color: rgba(255, 255, 255, 0.50);
-  --surface-color: rgba(255, 255, 255, 0.10);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.05);
-  --highlight-color: rgba(255, 255, 255, 0.20);
+  --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
-
 }
 
 .light {
-
   --text-color: black;
   --br-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
@@ -27,68 +22,52 @@
   --surface-color-hover: rgba(0, 0, 0, 0.05);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
-
 }
 body {
-
   background: var(--br-url) no-repeat top center/cover;
   height: 100vh;
-
 }
 
 body * {
-
   font-family: "Inter", sans-serif;
   color: var(--text-color);
-
 }
 
 #container {
-
   width: 100%;
   max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
-
 }
 
 /* profile*/
 
 #profile img {
-
   width: 112px;
   margin: auto;
   display: block;
-
 }
 
 #profile {
-
   text-align: center;
   padding: 24px;
-
 }
 
 #profile p {
-
   font-weight: 500;
   line-height: 24px;
   margin-top: 8px;
-
 }
 
 /* switch */
 
 #switch {
-
   position: relative;
   width: 64px;
   margin: 4px auto;
-
 }
 
 #switch button {
-
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -96,14 +75,22 @@ body * {
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 0;
   z-index: 1;
   transform: translateY(-50%);
-  
+
+  animation: slide-out 0.4s;
+}
+
+.light #switch button {
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
-
   display: block;
   width: 64px;
   height: 24px;
@@ -112,23 +99,19 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-
 }
 
 /* links */
 
- ul {
-
+ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 24px 0;
+}
 
- }
-
- ul li a{
-  
+ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,60 +124,69 @@ body * {
   text-decoration: none;
   font-weight: 500;
   transition: background 0.4s;
-  
 }
 
+/* pseudo-selector*/
 
- /* pseudo-selector*/
-
- ul li a:hover{
+ul li a:hover {
   background: var(--surface-color-hover);
-  border: 1.5px solid rgba(255, 255, 255, 0.50);
- }
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
 
- /* social-links */
+/* social-links */
 
- #social-links {
-
+#social-links {
   display: flex;
   padding: 24px 0;
   font-size: 24px;
   justify-content: center;
- }
+}
 
 #social-links a {
-
   display: flex;
   padding: center;
   justify-content: center;
   border-radius: 50%;
   padding: 16px;
   transition: background 0.4s;
-
 }
 
 #social-links a:hover {
-
   background: var(--highlight-color);
- 
 }
 
 footer {
-
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
-
 }
 
 /* media queries */
 
 @media (min-width: 700px) {
-
   :root {
     --br-url: url(./assets/bg-desktop.jpg);
   }
   .light {
     --br-url: url(./assets/bg-desktop-light.jpg);
-  } 
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
