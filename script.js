@@ -8,18 +8,18 @@ function toggleMode() {
 
   if (html.classList.contains('light')) {
 
-    img.setAttribute('src', './assets/avatar-light.png')
+    img.setAttribute('src', './assets/otocabral-light.png')
   } else {
 
-    img.setAttribute('src', './assets/avatar.png')
+    img.setAttribute('src', './assets/otocabral.png')
   }
 
   if (html.classList.contains('light')) {
 
-    img.setAttribute('alt', 'Foto com Fundo Azul de MaykBrito')
+    img.setAttribute('alt', 'Foto de Oto Cabral modo Light')
   } else {
 
-    img.setAttribute("alt", '"Foto de Maik Brito"')
+    img.setAttribute("alt", '"Foto de Oto Cabral"')
   }
 
 }
